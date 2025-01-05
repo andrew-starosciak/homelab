@@ -1,0 +1,7 @@
+all:
+  hosts:
+    arkstar:
+      ansible_host: 192.168.1.x
+      ansible_ssh_user: andrew
+      ansible_ssh_pass: ''
+
