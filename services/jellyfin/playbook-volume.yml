@@ -3,6 +3,15 @@
   hosts: arkstar
   become: true
   tasks:
+    - name: Mount NFS share
+      become: true
+      mount:
+        path: /home/a/G
+        src: "nas.arkstar.dev:/volume1/G"
+        fstype: nfs
+        opts: "vers=3"
+        state: mounted
+
     - name: Install zfs
     apt:
       state: present

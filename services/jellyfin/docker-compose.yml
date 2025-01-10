@@ -8,5 +8,6 @@ services:
     user: "$UID:$GID"
     volumes:
       - "/vol0_media:/media:rw"
+      - "/home/a/G:/media/nfs:rw"
     # environment:
     # - JELLYFIN_PublishedServerUrl=""
