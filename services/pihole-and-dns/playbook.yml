@@ -13,6 +13,7 @@
         jellyfin_domain: "jellyfin.arkstar.dev"
         nas_domain: "nas.arkstar.dev"
         photo_domain: "photo.arkstar.dev"
+        prox_domain: "prox.arkstar.dev"
 
     - name: Setup service
       ansible.builtin.import_tasks:
@@ -73,6 +74,14 @@
         line: "{{ ansible_default_ipv4.address }} {{ photo_domain }}"
         mode: "0644"
         create: true
+    
+    - name: "Set up local DNS: {{ prox_domain }}"
+      lineinfile:
+        dest: "{{ remote_service_dir }}/etc-pihole/custom.list"
+        line: "{{ ansible_default_ipv4.address }} {{ prox_domain }}"
+        mode: "0644"
+        create: true
+
 
     - name: Restart service
       shell: |
